@@ -3,17 +3,9 @@
   }
   @else {
     @for (item of items; track item; let i = $index) {
-      <li class="wish-list">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input class="checkbox" 
-            type="checkbox" 
-            [checked]="item.isComplete"
-            [attr.data-index]="i"
-            (click)="toggleItem(item)"
-            > {{item.wishText}}
-          </label>
-        </div>
-      </li>
+      <wish-list-item
+        [wishText] = "item.wishText"
+        [(fulfilled)]="item.isComplete"
+      ></wish-list-item>
     }
   }

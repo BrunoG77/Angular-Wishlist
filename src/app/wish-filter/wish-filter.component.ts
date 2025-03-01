@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { wishItem } from '../../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 
@@ -18,17 +18,23 @@ const filters = [
 })
 
 export class WishFilterComponent implements OnInit {
-  @Output() filter = new EventEmitter<any>()
+  // Input and Output to create a two way binding for [(filter)]
+  @Input() filter: any;
+
+  // If its a two way binding, Output MUST be the input name followed by "Change"
+  // Input => filter --- Output => filterChange
+  @Output() filterChange = new EventEmitter<any>()
 
   // To Filter the list
   listFilter : string = "0";
 
   ngOnInit(): void {
-    this.changeFilter(this.listFilter)
+    this.updateFilter(this.listFilter)
   }
 
-  changeFilter(value: string) {
-    this.filter.emit(filters[parseInt(value)]);
+  updateFilter(value: string) {
+    this.filter = filters[parseInt(value)];
+    this.filterChange.emit(this.filter);
   }
 
 }
