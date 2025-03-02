@@ -4,8 +4,7 @@
   @else {
     @for (item of items; track item; let i = $index) {
       <wish-list-item
-        [wishText] = "item.wishText"
-        [(fulfilled)]="item.isComplete"
+        [wish] = "item"
       ></wish-list-item>
     }
   }
