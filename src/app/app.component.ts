@@ -19,7 +19,7 @@ import { WishService } from './wish.service';
 })
 export class AppComponent implements OnInit {
   // create items array to contain various wish item objects
-  items! : wishItem[];
+  items : wishItem[] = [];
 
   filter: any;
 
@@ -38,9 +38,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // Get method is sent with the .subscribe(http request here)
-      this.wishService.getWishes().subscribe((data: any) => {
-        this.items = data;
-      })
+      this.wishService.getWishes().subscribe(
+        (data: any) => {
+          this.items = data;
+      },
+    (error: any) => {
+      alert(error.message)
+    }
+    )
   }
-
 }
