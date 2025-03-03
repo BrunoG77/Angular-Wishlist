@@ -12,7 +12,7 @@ import {EventService} from '../../shared/services/EventService';
   imports:[CommonModule]
 })
 export class WishListItemComponent {
-  // Use ! for the non null assertion, because we will always have a wishText
+  // Use ! for the non null assertion, because we will always have a wish
   @Input() wish!: wishItem;
 
   toggleFulfilled(){

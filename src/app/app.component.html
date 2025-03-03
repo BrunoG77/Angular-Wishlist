@@ -1,21 +1,8 @@
 <div class="container">
+  <nav>
+    <a routerLink="/">Wish List</a> |
+    <a routerLink="/contact">Contact</a>
+  </nav>
 
-  <add-wish-form
-  (addWish) = "items.push($event)"
-  ></add-wish-form>
-
-  <div class="row mt-3">
-    <wish-filter
-      [(filter)]="filter"
-    ></wish-filter>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-sm-4">
-      <wish-list
-        [items]="items.filter(filter)"
-      ></wish-list>
-    </div>
-  </div>
-
+  <router-outlet></router-outlet>
 </div>

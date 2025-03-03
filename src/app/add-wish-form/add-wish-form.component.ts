@@ -13,7 +13,7 @@ export class AddWishFormComponent {
   @Output() addWish = new EventEmitter<wishItem>()
 
   addNewWish(newWish : string) {
-    if (newWish.trim()){
+    if (newWish.length > 0){
       //this.items.push(new wishItem(newWish.trim()))
       this.addWish.emit(new wishItem(newWish.trim()))
     }
