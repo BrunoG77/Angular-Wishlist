@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,4 +15,10 @@ import { CommonModule } from '@angular/common';
 
 export class AppComponent {
   
+  constructor(private router: Router) {}
+
+  goToContact() {
+    // easier to put links together. If array was ["contact", "write"] -> /contact/write 
+    this.router.navigate(['contact'])
+  }
 }

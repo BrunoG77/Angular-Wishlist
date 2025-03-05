@@ -1,7 +1,8 @@
 <div class="container">
   <nav>
     <a routerLink="/">Wish List</a> |
-    <a routerLink="/contact">Contact</a>
+    <a href="#" (click)="$event.preventDefault(); goToContact()">Contact</a>|
+    <a routerLink="/products">Products</a>
   </nav>
 
   <router-outlet></router-outlet>
